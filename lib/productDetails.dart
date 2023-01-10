@@ -43,7 +43,7 @@ class _productDetailsState extends State<productDetails> {
             itemCount: 5,
             itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
             itemBuilder: (context, _) => Icon(
-              Icons.star_border_purple500,
+              Icons.emoji_events,
               color: Colors.deepPurple,
             ),
             onRatingUpdate: (rating) {
@@ -57,7 +57,7 @@ class _productDetailsState extends State<productDetails> {
             height: 200,
             width: 200,
           )),
-          Expanded(child: Text("${widget.m['description']}")),
+          Expanded(child: Text("Description:  ${widget.m['description']}")),
           Expanded(child: Text("dollar:${widget.m['price']}")),
           SizedBox(
             height: 100,
