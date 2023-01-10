@@ -44,7 +44,7 @@ class _productoageState extends State<productoage> {
           else
           {
             List? l=snapshot.data;
-            return ListView.builder(itemBuilder: (context, index) {
+            return ListView.separated(itemBuilder: (context, index) {
 
               Map m=l[index];
               print(m);
@@ -59,7 +59,9 @@ class _productoageState extends State<productoage> {
                 subtitle: Text("${m['price']}"),
                 leading: Container(height: 100,width: 100,child: Image.network(m['image']),)
               );
-            },itemCount: l!.length,);
+            },itemCount: l!.length, separatorBuilder: (BuildContext context, int index) {
+              return Divider(thickness: 1,color: Colors.red,);
+            },);
           }
         },
       ),

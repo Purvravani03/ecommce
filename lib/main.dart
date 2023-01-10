@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 void main() {
   runApp(MaterialApp(
     home: MyApp(),
+    debugShowCheckedModeBanner: false,
   ));
 }
 
@@ -65,7 +66,7 @@ class _MyAppState extends State<MyApp> {
               else
               {
                 List? l=snapshot.data;
-                return ListView.builder(itemBuilder: (context, index) {
+                return ListView.separated(itemBuilder: (context, index) {
                   return ListTile(
                     title: Text("${l[index]}"),
                     leading: Image(height: 100,width:100,image: AssetImage("image/${image[index]}")),
@@ -75,7 +76,9 @@ class _MyAppState extends State<MyApp> {
                       },));
                     },
                   );
-                },itemCount: l!.length,);
+                },itemCount: l!.length, separatorBuilder: (BuildContext context, int index) {
+                  return Divider(thickness: 1,color: Colors.red,);
+                },);
               }
             },
           ),
